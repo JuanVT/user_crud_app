@@ -137,7 +137,7 @@ STATIC_URL = '/static/'
 
 # User Settings
 AUTH_USER_MODEL = 'users.BaseUser'
-LOGIN_URL = 'login'
+LOGIN_URL = 'user_login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = 'index'
 
