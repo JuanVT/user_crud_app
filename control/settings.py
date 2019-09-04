@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     'control',
     'control.users',
+
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'control.urls'
@@ -65,10 +69,19 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 WSGI_APPLICATION = 'control.wsgi.application'
 
@@ -124,3 +137,10 @@ STATIC_URL = '/static/'
 
 # User Settings
 AUTH_USER_MODEL = 'users.BaseUser'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'index'
+
+
+SOCIAL_AUTH_GITHUB_KEY = 'b397842d8a80244e2690'
+SOCIAL_AUTH_GITHUB_SECRET = 'fb54db87341eaec8aa5efde5eb033cea2259a48a'
