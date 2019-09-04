@@ -22,6 +22,6 @@ from control.views import index, login
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', index, name='index'),
-    url(r'user_login^$', login, name='login'),
+    url(r'^user_login$', login, name='login'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
 ]
