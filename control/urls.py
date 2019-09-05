@@ -17,11 +17,11 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 
-from control.views import index, login
+from control.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),  # Auth URLs
     url(r'^$', index, name='index'),
-    url(r'^user_login$', login, name='login'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
 ]
