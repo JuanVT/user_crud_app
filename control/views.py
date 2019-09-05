@@ -10,9 +10,3 @@ def index(request):
     template = loader.get_template('control/index.html')
     return HttpResponse(template.render(context=context, request=request))
 
-
-def login(request):
-    context = {}
-
-    template = loader.get_template('users/user_login.html')
-    return HttpResponse(template.render(context=context, request=request))
