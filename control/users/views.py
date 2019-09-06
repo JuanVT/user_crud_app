@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 
 from control.users.forms import SignUpForm, EditProfileForm
-from control.users.models import BaseUser
 
 
 def signup(request):
