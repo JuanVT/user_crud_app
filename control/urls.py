@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 
-from control.users.views import signup
+from control.users.views import signup, view_profile, edit_profile
 from control.views import index
 
 urlpatterns = [
@@ -25,5 +25,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),  # Auth URLs
     url(r'^$', index, name='index'),
     url(r'^signup/$', signup, name='signup'),
+    url(r'^profile/$', view_profile, name='view_profile'),
+    url(r'^profile/edit_profile/$', edit_profile, name='edit_profile'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
 ]

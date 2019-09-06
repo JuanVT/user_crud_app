@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 from control.users.models import BaseUser
 
@@ -36,3 +36,27 @@ class SignUpForm(UserCreationForm):
             raise forms.ValidationError(
                 'Email address already exists!'
             )
+
+
+class EditProfileForm(UserChangeForm):
+    phone_number = forms.DecimalField(label='Phone Number', required=False)
+    Address = forms.CharField(label='Address', required=False)
+    company = forms.CharField(label='Company', required=False)
+    job_title = forms.CharField(label='Job Title', required=False)
+    location = forms.CharField(label='Location', required=False)
+    bio = forms.CharField(label='Bio', required=False)
+    password = None
+
+    class Meta:
+        model = BaseUser
+        fields = (
+            'first_name',
+            'last_name',
+            'email',
+            'address',
+            'phone_number',
+            'company',
+            'job_title',
+            'location',
+            'bio'
+        )
