@@ -2,7 +2,7 @@
 
 This application allows users to create, read, update and delete their profile information.
 
-It has been built with Django and SQLite3 database.
+It has been built with Django.
 
 ## Getting Started
 
