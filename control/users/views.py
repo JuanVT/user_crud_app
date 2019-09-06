@@ -1,7 +1,8 @@
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 
-from control.users.forms import SignUpForm
+from control.users.forms import SignUpForm, EditProfileForm
 
 
 def signup(request):
@@ -34,3 +35,24 @@ def signup(request):
         'form': form,
     }
     return render(request, 'registration/signup.html', context)
+
+
+@login_required()
+def view_profile(request):
+    return render(request, 'users/profile.html')
+
+
+def edit_profile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect('/profile')
+    else:
+        form = EditProfileForm(instance=request.user)
+
+    context = {
+        'form': form
+    }
+    return render(request, 'registration/edit_profile.html', context)
