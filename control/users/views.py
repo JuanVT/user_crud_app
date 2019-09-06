@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 
 from control.users.forms import SignUpForm, EditProfileForm
+from control.users.models import BaseUser
 
 
 def signup(request):
@@ -39,7 +40,12 @@ def signup(request):
 
 @login_required()
 def view_profile(request):
-    return render(request, 'users/profile.html')
+    user = request.user
+
+    context = {
+        'user': user
+    }
+    return render(request, 'users/profile.html', context)
 
 
 def edit_profile(request):
