@@ -8,9 +8,10 @@
 
       {{ form.as_p }}
 
-    <button type="submit">Login</button>
+    <input type="submit" value="Login">
   </form>
-  <br>
+  <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+    <br>
   <p><strong>-- OR --</strong></p>
   <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
 
