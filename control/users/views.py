@@ -1,8 +1,13 @@
 from django.contrib.auth import login
+from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 
-from control.users.forms import SignUpForm, EditProfileForm
+from control.users.forms import (
+    SignUpForm,
+    EditProfileForm,
+    ResetPasswordForm
+)
 
 
 def signup(request):
@@ -62,3 +67,21 @@ def edit_profile(request):
         'form': form
     }
     return render(request, 'registration/edit_profile.html', context)
+
+
+@login_required()
+def password_reset(request):
+    if request.method == 'POST':
+        form = ResetPasswordForm(data=request.POST, user=request.user)
+
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            return redirect('/profile')
+    else:
+        form = ResetPasswordForm(request.user)
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'registration/password_reset.html', context)

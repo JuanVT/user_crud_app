@@ -1,5 +1,9 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import (
+    UserCreationForm,
+    UserChangeForm,
+    PasswordChangeForm
+)
 
 from control.users.models import BaseUser
 
@@ -59,4 +63,14 @@ class EditProfileForm(UserChangeForm):
             'job_title',
             'location',
             'bio'
+        )
+
+
+class ResetPasswordForm(PasswordChangeForm):
+    class Meta:
+        model = BaseUser
+        fields = (
+            'old_password',
+            'new_password1',
+            'new_password2'
         )

@@ -17,7 +17,12 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 
-from control.users.views import signup, view_profile, edit_profile
+from control.users.views import (
+    signup,
+    view_profile,
+    edit_profile,
+    password_reset
+)
 from control.views import index
 
 urlpatterns = [
@@ -27,5 +32,6 @@ urlpatterns = [
     url(r'^signup/$', signup, name='signup'),
     url(r'^profile/$', view_profile, name='view_profile'),
     url(r'^profile/edit_profile/$', edit_profile, name='edit_profile'),
+    url(r'^profile/password_reset/$', password_reset, name='password_reset'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
 ]
