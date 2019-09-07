@@ -8,6 +8,7 @@ from control.users.forms import (
     EditProfileForm,
     ResetPasswordForm
 )
+from control.users.models import BaseUser
 
 
 def signup(request):
@@ -85,3 +86,17 @@ def password_reset(request):
         'form': form,
     }
     return render(request, 'registration/password_reset.html', context)
+
+
+@login_required()
+def delete_confirmation(request):  # User's account deletion
+    return render(request, 'registration/delete_confirmation.html')
+
+
+@login_required()
+def account_deletion(request, user_id):
+    user = BaseUser.objects.get(id=user_id)
+
+    if request.method == 'POST':
+        user.delete()
+        return redirect('/')

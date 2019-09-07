@@ -21,7 +21,9 @@ from control.users.views import (
     signup,
     view_profile,
     edit_profile,
-    password_reset
+    password_reset,
+    account_deletion,
+    delete_confirmation
 )
 from control.views import index
 
@@ -33,5 +35,7 @@ urlpatterns = [
     url(r'^profile/$', view_profile, name='view_profile'),
     url(r'^profile/edit_profile/$', edit_profile, name='edit_profile'),
     url(r'^profile/password_reset/$', password_reset, name='password_reset'),
+    url(r'^profile/delete_confirmation/$', delete_confirmation, name='delete_confirmation'),
+    url(r'^profile/delete/(?P<user_id>\d+)/$', account_deletion, name='account_deletion'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
 ]
