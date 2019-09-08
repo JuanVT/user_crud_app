@@ -21,7 +21,7 @@ def signup(request):
 
         if form.is_valid():
             user = form.save(commit=False)
-            password = form.cleaned_data.get('password')
+            password = form.cleaned_data.get('password1')
             email = form.cleaned_data.get('email1')
 
             user.set_password(password)
