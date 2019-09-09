@@ -33,12 +33,6 @@
 <div class="wrapper">
     <div class="sidebar" data-color="blue" data-image='{% static "assets/img/sidebar-5.jpg" %}'>
 
-    <!--
-
-        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-        Tip 2: you can also add an image using data-image tag
-
-    -->
 {% block sidebar %}
     	<div class="sidebar-wrapper">
             <div class="logo">
@@ -88,7 +82,7 @@
         <div class="content">
             <div class="container-fluid">
                 {% block content %}
-                HERE IS WHERE THE CONTENT GOES
+
                 {% endblock %}
             </div>
         </div>
@@ -100,7 +94,7 @@
                     <ul>
                         <li>
                             <a href="{% url 'index' %}">
-                                Home
+
                             </a>
                         </li>
                         <li>
@@ -116,7 +110,6 @@
                     </ul>
                 </nav>
                 <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
                 </p>
             </div>
         </footer>
