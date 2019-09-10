@@ -1,6 +1,7 @@
 {% extends 'control/base.html' %}
 
 {% block title %}Edit profile{% endblock %}
+{% block menu_name %}Edit my profile {% endblock %}
 
 {% block content %}
 <div class="table-responsive table-full-width">
@@ -47,6 +48,15 @@
             <tr>
 				<td>Bio</td>
                 <td>{{ form.bio }}</td>
+			</tr>
+            <tr>
+				<td>Would you like to reset your password? please click
+                    <a href="{% url 'password_reset' %}">here</a>
+                </td>
+                <td>
+                    <button class="btn btn-danger btn-fill pull-left" type="button"
+                                    onclick="window.location.href = '{% url 'delete_confirmation' %}'">Delete my account</button>
+                </td>
 			</tr>
             <tr>
                 <td>
