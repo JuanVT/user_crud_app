@@ -1,5 +1,10 @@
 {% extends 'control/base.html' %}
+{% load static %}
+
+<link href='{% static 'fontawesome/css/all.css' %}' rel="stylesheet" />
+
 {% block menu_name %} Login {% endblock %}
+
 {% block content %}
 
 
@@ -16,7 +21,9 @@
                         <button class="btn btn-primary btn-fill center-block" type="submit">Login</button><br>
                         <div>
                             <p><strong>-- OR --</strong></p>
-                            <p>Login with </p><a href="{% url 'social:begin' 'github' %}">GitHub</a>
+                            <p>Login with </p>
+                            <a class="btn-default fa fa-github-square fa-2x" href="{% url 'social:begin' 'github' %}">
+                            </a>
                         </div>
                         <div>
                             <p>You don't have an account yet? <a href="{% url 'signup' %}">SignUp</a></p>
