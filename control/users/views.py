@@ -67,7 +67,7 @@ def edit_profile(request):
     context = {
         'form': form
     }
-    return render(request, 'registration/edit_profile.html', context)
+    return render(request, 'users/edit_profile.html', context)
 
 
 @login_required()
