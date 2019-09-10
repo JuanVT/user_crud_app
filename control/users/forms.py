@@ -43,13 +43,6 @@ class SignUpForm(UserCreationForm):
 
 
 class EditProfileForm(UserChangeForm):
-    phone_number = forms.DecimalField(label='Phone Number', required=False)
-    address = forms.CharField(label='Address', required=False)
-    company = forms.CharField(label='Company', required=False)
-    job_title = forms.CharField(label='Job Title', required=False)
-    location = forms.CharField(label='Location', required=False)
-    bio = forms.CharField(label='Bio', required=False)
-    password = None
 
     class Meta:
         model = BaseUser

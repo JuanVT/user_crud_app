@@ -1,17 +1,80 @@
 {% extends 'control/base.html' %}
 
 {% block title %}Edit profile{% endblock %}
+{% block menu_name %}Edit my profile {% endblock %}
 
 {% block content %}
-
-    <form method="post">
+<div class="table-responsive table-full-width">
+<form method="post">
         {% csrf_token %}
+	<table class="table table-hover table-striped">
+		<tbody>
+			<tr>
+				<td>Username</td>
+				<td>{{ user.username }}</td>
+			</tr>
+            <tr>
+				<td>First Name</td>
+				<td>{{ form.first_name }}</td>
+			</tr>
+            <tr>
+				<td>Last Name</td>
+				<td>{{ form.last_name }}</td>
+			</tr>
+            <tr>
+				<td>Email Address</td>
+				<td>{{ form.email }}</td>
+			</tr>
+            <tr>
+				<td>Phone Number</td>
+				<td>{{ form.phone_number }}</td>
+			</tr>
+            <tr>
+				<td>Address</td>
+				<td>{{ form.address }}</td>
+			</tr>
+            <tr>
+				<td>Location</td>
+				<td>{{ form.location }}</td>
+			</tr>
+            <tr>
+				<td>Company</td>
+				<td>{{ form.company }}</td>
+			</tr>
+            <tr>
+				<td>Job Title</td>
+				<td>{{ form.job_title }}</td>
+			</tr>
+            <tr>
+				<td>Bio</td>
+                <td>{{ form.bio }}</td>
+			</tr>
+            <tr>
+				<td>Would you like to reset your password? please click
+                    <a href="{% url 'password_reset' %}">here</a>
+                </td>
+                <td>
+                    <button class="btn btn-danger btn-fill pull-left" type="button"
+                                    onclick="window.location.href = '{% url 'delete_confirmation' %}'">Delete my account</button>
+                </td>
+			</tr>
+            <tr>
+                <td>
+                    <div class="btn-group mr-2">
+                        <button class="btn btn-info btn-fill pull-left" type="submit">Save</button>
+                        </div>
 
-        {{ form.as_p }}
-
-        <p>Do you want to reset your password? <a href="{% url 'password_reset' %}">Reset password</a></p>
-        <p>Delete my account? <a href="{% url 'delete_confirmation' %}">here</a></p>
-        <input type="submit">
-    </form>
+                        <div class="btn-group mr-2">
+                            <button class="btn btn-info btn-fill pull-left" type="button"
+                                    onclick="window.location.href = '{% url 'view_profile' %}'">Back</button>
+                        </div>
+                </td>
+                <td>
+                </td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+</div>
 
 {% endblock %}
