@@ -52,7 +52,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 ### Tests
-There are a few tests you can run in order to test the application please run this command to run the tests:
+To run the tests simply do:
 ```
 python manage.py test
 ```
