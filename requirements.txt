@@ -1,4 +1,4 @@
-Django==2.2.5                   # Framework used
+Django==2.2.28                   # Framework used
 social-auth-app-django==3.1.0   # Social login library
 pyOpenSSL==19.0.0               # Package for secure connections
 python-decouple==3.1            # Library to separate settings
